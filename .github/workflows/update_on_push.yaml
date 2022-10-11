@@ -36,7 +36,7 @@ jobs:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
           port: ${{ secrets.PORT }}
-          rm: true
+          strip_components: 6
           source: "android/app/build/outputs/apk/release/app-release.apk"
           target: "/home/alexandre/mobile"
 
