@@ -40,6 +40,6 @@ jobs:
 #          target: "/home/alexandre/mobile"
 #          script:
 #            cd
-        run: ssh -i ${{ secrets.KEY }} ${{ secrets.USERNAME }}@${{ secrets.HOST }}
+        run: ssh -i "${{ secrets.KEY }}" ${{ secrets.USERNAME }}@${{ secrets.HOST }}
 
 
