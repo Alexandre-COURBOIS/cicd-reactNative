@@ -38,8 +38,8 @@ jobs:
           port: ${{ secrets.PORT }}
           source: "android/app/build/outputs/apk/release/app-release.apk"
           target: "/home/alexandre/mobile"
-      - name: Move apk to android file
-        run: |
-          cd android/app/build/outputs/apk/release/ && ls
+          script: |
+            cd android/app/build/outputs/apk/release/
+            ls
 
 
