@@ -29,9 +29,6 @@ jobs:
         with:
           name: app-release.apk
           path: android/app/build/outputs/apk/release/
-      - name: Move to apk
-        run: |
-          cd android/app/build/outputs/apk/release/
       - name: Deploy to server
         uses: appleboy/scp-action@master
         with:
@@ -39,7 +36,10 @@ jobs:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
           port: ${{ secrets.PORT }}
-          source: "app-release.apk"
+          source: "android/app/build/outputs/apk/release/app-release.apk"
           target: "/home/alexandre/mobile"
+#      - name: Move apk to android file
+#        run: |
+#          cd android/app/build/outputs/apk/release/ && ls
 
 
