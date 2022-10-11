@@ -18,17 +18,17 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Install npm dependencies
-        run: |
-          npm install
-      - name: Build Android Release
-        run: |
-          cd android && ./gradlew assembleRelease
-      - name: Upload Artifact
-        uses: actions/upload-artifact@v1
-        with:
-          name: app-release.apk
-          path: android/app/build/outputs/apk/release/
+#      - name: Install npm dependencies
+#        run: |
+#          npm install
+#      - name: Build Android Release
+#        run: |
+#          cd android && ./gradlew assembleRelease
+#      - name: Upload Artifact
+#        uses: actions/upload-artifact@v1
+#        with:
+#          name: app-release.apk
+#          path: android/app/build/outputs/apk/release/
       - name: Deploy to server
         uses: appleboy/scp-action@master
         with:
@@ -38,8 +38,8 @@ jobs:
           port: ${{ secrets.PORT }}
           source: "android/app/build/outputs/apk/release/app-release.apk"
           target: "/home/alexandre/mobile"
-#      - name: Move apk to android file
-#        run: |
-#          cd android/app/build/outputs/apk/release/ && ls
+      - name: Move apk to android file
+        run: |
+          cd android/app/build/outputs/apk/release/ && ls
 
 
